@@ -1,10 +1,12 @@
-import type { Service } from "#type/service";
+import type { Service } from "#types/service";
 
-import { DTO } from "./dto";
+import type UsersRepository from "../../repository";
+import type UsersDTO from "./dto";
 
-export default function UsersGetService(): Service<typeof DTO> {
+export default function UsersGetService(repository: UsersRepository): Service<typeof UsersDTO> {
   return (data) => {
-    console.log(data);
-    return data;
+    return {
+      users: repository.allUsers(),
+    };
   };
 }

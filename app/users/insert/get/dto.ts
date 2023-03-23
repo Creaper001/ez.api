@@ -1,5 +1,5 @@
 import { Record, String } from "runtypes";
 
-export const DTO = Record({
+export default Record({
   name: String,
 });
